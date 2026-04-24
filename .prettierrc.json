@@ -1,0 +1,35 @@
+{
+  "printWidth": 100,
+  "tabWidth": 2,
+  "useTabs": false,
+  "endOfLine": "lf",
+  "embeddedLanguageFormatting": "auto",
+  "singleQuote": true,
+  "semi": true,
+  "trailingComma": "all",
+  "bracketSpacing": true,
+  "arrowParens": "always",
+  "quoteProps": "as-needed",
+  "overrides": [
+    {
+      "files": ["*.md", "*.mdx"],
+      "options": { "tabWidth": 4, "proseWrap": "preserve" }
+    },
+    {
+      "files": ["*.yml", "*.yaml"],
+      "options": { "singleQuote": false }
+    },
+    {
+      "files": ["*.css", "*.scss", "*.less"],
+      "options": { "singleQuote": false }
+    },
+    {
+      "files": ["*.html", "*.vue", "*.svelte"],
+      "options": { "htmlWhitespaceSensitivity": "css" }
+    },
+    {
+      "files": ["package.json", "package-lock.json", "tsconfig*.json"],
+      "options": { "tabWidth": 2 }
+    }
+  ]
+}

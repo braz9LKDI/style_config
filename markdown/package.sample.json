@@ -1,0 +1,15 @@
+{
+  "_comment": "Sample package.json fragment, copy the `scripts` and `devDependencies` blocks into your project's package.json.",
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint:md": "markdownlint-cli2 \"**/*.md\" \"#node_modules\"",
+    "lint": "npm run lint:md",
+    "fix": "prettier --write . && markdownlint-cli2 --fix \"**/*.md\" \"#node_modules\"",
+    "check": "npm run format:check && npm run lint"
+  },
+  "devDependencies": {
+    "markdownlint-cli2": "^0.15.0",
+    "prettier": "^3.3.3"
+  }
+}
