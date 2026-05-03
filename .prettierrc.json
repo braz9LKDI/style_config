@@ -26,10 +26,6 @@
     {
       "files": ["*.html", "*.vue", "*.svelte"],
       "options": { "htmlWhitespaceSensitivity": "css" }
-    },
-    {
-      "files": ["package.json", "package-lock.json", "tsconfig*.json"],
-      "options": { "tabWidth": 2 }
     }
   ]
 }
