@@ -91,11 +91,11 @@ sudo pacman -S --needed texlive-meta biber
 `latexindent` is a Perl script and depends on several CPAN modules that TeX Live does **not** bundle. On Arch these are split between the official repos and AUR:
 
 ```bash
-# official repos
-sudo pacman -S --needed perl-yaml-tiny perl-unicode-linebreak perl-log-log4perl
+# Official repos
+sudo pacman -S --needed perl-yaml-tiny
 
 # AUR (use yay, paru, or similar)
-yay -S perl-file-homedir perl-log-dispatch perl-log-dispatch-filerotate
+yay -S perl-file-homedir
 ```
 
 The full runtime dependency list for `latexindent`:

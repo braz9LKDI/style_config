@@ -44,7 +44,7 @@ Editor extension: [`james-yu.latex-workshop`][ext-latex-workshop] handles format
 ## Anatomy of the config
 
 ```yaml
-defaultIndent: "    "
+defaultIndent: '    '
 
 modifyLineBreaks:
     environments:
@@ -191,8 +191,8 @@ latexindent -s -m -l -k "$file" >/dev/null 2>&1
 
 ```makefile
 clean-indent-tmp:
-	@find . -type f \( -name '*.bak' -o -name '*.bak[0-9]' -o -name '*.tmp.bak' -o -name '*.tmp.tex' \) \
-		-not -path './build/*' -not -path './.git/*' -delete
+    @find . -type f \( -name '*.bak' -o -name '*.bak[0-9]' -o -name '*.tmp.bak' -o -name '*.tmp.tex' \) \
+        -not -path './build/*' -not -path './.git/*' -delete
 ```
 
 Both `format` and `format-check` invoke `clean-indent-tmp` at the end. The `.gitignore` also lists these patterns so a forgotten cleanup never ends up in a commit.

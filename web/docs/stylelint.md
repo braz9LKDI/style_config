@@ -163,10 +163,10 @@ border-radius: 4px;
 ```css
 .nav a {
     color: blue;
-} /* specificity (0,1,1) */
+} /* Specificity (0,1,1) */
 a:hover {
     color: red;
-} /* specificity (0,1,0), would fire the rule */
+} /* Specificity (0,1,0), would fire the rule */
 ```
 
 ### `ignoreFiles: ["node_modules/**", "**/*.min.css"]`

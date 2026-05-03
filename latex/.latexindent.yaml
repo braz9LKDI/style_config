@@ -1,4 +1,4 @@
-defaultIndent: "  "
+defaultIndent: "    "
 modifyLineBreaks:
   environments:
     BeginStartsOnOwnLine: 1

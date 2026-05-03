@@ -153,31 +153,30 @@ Run `man chktex` for the full warning list with examples.
 Concrete cases that produced false positives:
 
 ```latex
-% Warning 1: "Command terminated with space."
+% Warning 1: "Command terminated with space"
 $\arccos \left ( \frac{ a + b }{ c } \right )$
 % Personal style: \left and \right are written with a space before the delimiter,
-% and spaces inside braces are kept for source readability.
-% Without -n 1, every \left/\right and \cmd-followed-by-space gets flagged.
-
+% and spaces inside braces are kept for source readability
+% Without -n 1, every \left/\right and \cmd-followed-by-space gets flagged
 % Warning 12 / 13: interword / intersentence spacing
 Mr. Smith arrived at 9:00.
-% chktex wants `Mr.\ Smith` to fix the period-spacing.
-% Microtypographically correct, but unreadable in source.
+% chktex wants `Mr.\ Smith` to fix the period-spacing
+% Microtypographically correct, but unreadable in source
 
 % Warning 24: pre-label whitespace
 \section{Introduction} \label{sec:intro}
-% chktex wants \section{Introduction}\label{sec:intro} (no space).
-% The space affects nothing in the rendered PDF; removing it makes source harder to scan.
+% chktex wants \section{Introduction}\label{sec:intro} (no space)
+% The space affects nothing in the rendered PDF; removing it makes source harder to scan
 
-% Warning 36: "Space in front of parenthesis."
+% Warning 36: "Space in front of parenthesis"
 See \cite{author2020}(p. 42).
-% chktex sees \cite{...}(...) as "missing space".
-% In context this is the correct way to typeset a parenthetical page reference.
+% chktex sees \cite{...}(...) as "missing space"
+% In context this is the correct way to typeset a parenthetical page reference
 
-% Warning 37: "You should avoid spaces in front of parenthesis."
+% Warning 37: "You should avoid spaces in front of parenthesis"
 $ \arccos \left ( x + y \right ) $
-% Personal style: \left ( and \right ) put a deliberate space before the paren.
-% Same trigger as -n 1 above; both must be suppressed for sized-delimiter math to lint cleanly.
+% Personal style: \left ( and \right ) put a deliberate space before the paren
+% Same trigger as -n 1 above; both must be suppressed for sized-delimiter math to lint cleanly
 ```
 
 If a project never uses `\cite{...}(...)` patterns, you can drop `-n 36` to keep that warning enabled. Likewise, drop `-n 37` if the project does not use `\left (` / `\right )` style. Edit `CHKTEX_NOWARN` in the `Makefile` directly.

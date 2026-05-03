@@ -135,9 +135,9 @@ If your top-level file is `thesis.tex` or `paper.tex`, change this string accord
 The `Makefile` calls `latexmk` as:
 
 ```bash
-latexmk main.tex       # Make build
-latexmk -pvc main.tex  # Make watch
-latexmk -C             # Make clean (part of make clean)
+latexmk main.tex      # Make build
+latexmk -pvc main.tex # Make watch
+latexmk -C            # Make clean (part of make clean)
 ```
 
 |  flag  |                            what does it do?                             |
@@ -168,7 +168,7 @@ If yes to any of those, run again, up to `$max_repeat` times. If no, stop. This 
 For a project that needs OpenType fonts:
 
 ```perl
-$pdf_mode = 4;             # lualatex
+$pdf_mode = 4; # lualatex
 $lualatex = 'lualatex -shell-escape -halt-on-error -file-line-error '
           . '-interaction=nonstopmode %O %S';
 ```

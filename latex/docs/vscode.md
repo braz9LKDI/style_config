@@ -85,6 +85,7 @@ Run `chktex` on every save and surface results in the Problems panel. `chktex` r
 ### Formatting
 
 ```jsonc
+"latex-workshop.formatting.latex": "latexindent",
 "latex-workshop.formatting.latexindent.path": "latexindent",
 "latex-workshop.formatting.latexindent.args": [
     "-c", "%DIR%/",
