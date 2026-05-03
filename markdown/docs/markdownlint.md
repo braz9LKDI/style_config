@@ -49,6 +49,14 @@ The CLI scripts merged from [`../package.sample.json`](../package.sample.json):
 
 ## Rule-by-rule (the disabled ones)
 
+### `MD007: { "indent": 4 }` (unordered list indentation)
+
+Nested list items use 4-space indentation instead of the default 2 spaces.
+
+## `"MD010": { "spaces_per_tab": 4 }`
+
+Hard tab characters are equivalent to 4 spaces instead of the default 1 space.
+
 ### `MD013: false` (line length)
 
 Disabled. Prettier's `proseWrap: "never"` keeps each paragraph on one long line, which produces clean diffs (a one-word change shows up as one line, not five). `MD013` would warn on every line over 80 chars; the two settings would fight.
@@ -58,6 +66,10 @@ Disabled. Prettier's `proseWrap: "never"` keeps each paragraph on one long line,
 
 This is a long paragraph that explains some concept in detail and would normally be hard-wrapped at 80 columns, but we let Prettier control wrapping and Prettier prefers no wrap.
 ```
+
+### `"MD033": { "allowed_elements": ["br"] }`
+
+Allow `<br>` HTML tags for line breaks in Markdown table cells.
 
 ### `MD041: false` (first line must be a top-level heading)
 
@@ -77,10 +89,6 @@ date: 2024-01-01
 ```
 
 Without this override, the YAML frontmatter or the badge line would trigger the rule.
-
-### `MD007: { "indent": 4 }` (unordered list indentation)
-
-Nested list items use 4-space indentation instead of the default 2 spaces.
 
 ## Examples (rules still enabled)
 

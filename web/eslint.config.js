@@ -8,10 +8,7 @@ export default [
       "node_modules/",
     ],
   },
-
   js.configs.recommended,
-
-  // Browser scripts (client-side JS)
   {
     files: ["js/**/*.js"],
     languageOptions: {
@@ -20,7 +17,6 @@ export default [
       globals: { ...globals.browser },
     },
     rules: {
-      // Style / quality (strict defaults)
       camelcase: ["error", { properties: "never" }],
       eqeqeq: ["error", "always"],
       curly: ["error", "all"],
@@ -36,8 +32,6 @@ export default [
       "consistent-return": "error",
     },
   },
-
-  // Node scripts (build scripts)
   {
     files: ["scripts/**/*.js", "*.config.js", "eslint.config.js"],
     languageOptions: {

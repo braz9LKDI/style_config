@@ -1,7 +1,8 @@
 {
-  // https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
   "default": true,
-  "MD013": false, // Line length, let Prettier handle wrapping
-  "MD041": false, // First line does not have to be a top-level heading
-  "MD007": { "indent": 4 }
+  "MD007": { "indent": 4 },
+  "MD010": { "spaces_per_tab": 4 },
+  "MD013": false,
+  "MD033": { "allowed_elements": ["br"] },
+  "MD041": false,
 }
