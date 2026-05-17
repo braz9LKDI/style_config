@@ -1,0 +1,20 @@
+// Tool: https://www.npmjs.com/package/markdownlint-cli2
+{
+  // Enable the default markdownlint rule set
+  "default": true,
+
+  // Use 4 spaces for nested unordered lists
+  "MD007": { "indent": 4 },
+
+  // Treat hard tabs as 4 spaces when reporting tab issues
+  "MD010": { "spaces_per_tab": 4 },
+
+  // Disable line-length linting so Prettier and author wrapping own prose
+  "MD013": false,
+
+  // Allow <br> for explicit line breaks in Markdown table cells and compact prose
+  "MD033": { "allowed_elements": ["br"] },
+
+  // Allow frontmatter, badges and other content before the first H1
+  "MD041": false
+}

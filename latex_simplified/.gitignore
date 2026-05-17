@@ -18,12 +18,12 @@
 *.tmp.bak
 *.tmp.tex
 
-## minted (shell-escape) cache
+# minted shell-escape cache
 /_minted-*/
 /_minted/
 
 # latexmk output directory
 /build/
 
-# Local notes
+# Local notes or extracted source references
 /sources.md

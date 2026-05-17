@@ -1,0 +1,31 @@
+{
+  // Commands for formatting, linting, fixing and CI checks
+  "scripts": {
+    // Rewrite every file Prettier supports
+    "format": "prettier --write .",
+
+    // Check formatting without changing files. Use this in CI
+    "format:check": "prettier --check .",
+
+    // Run markdownlint on Markdown files and skip node_modules
+    "lint:md": "markdownlint-cli2 \"**/*.md\" \"#node_modules\"",
+
+    // Run the Markdown linter
+    "lint": "npm run lint:md",
+
+    // Apply Prettier formatting and markdownlint fixes
+    "fix": "prettier --write . && markdownlint-cli2 --fix \"**/*.md\" \"#node_modules\"",
+
+    // Full verification command for CI and pre-commit checks
+    "check": "npm run format:check && npm run lint"
+  },
+
+  // Development-only tooling used by the scripts above
+  "devDependencies": {
+    // Markdown structure linter and CLI
+    "markdownlint-cli2": "^0.15.0",
+
+    // Formatter for Markdown, JSON, YAML and related files
+    "prettier": "^3.3.3"
+  }
+}

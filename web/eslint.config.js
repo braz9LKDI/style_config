@@ -1,7 +1,6 @@
 import js from "@eslint/js";
 import globals from "globals";
 
-
 export default [
   {
     ignores: [
@@ -12,7 +11,7 @@ export default [
   {
     files: ["js/**/*.js"],
     languageOptions: {
-    ecmaVersion: "latest",
+      ecmaVersion: "latest",
       sourceType: "module",
       globals: { ...globals.browser },
     },

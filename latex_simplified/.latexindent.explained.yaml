@@ -1,0 +1,58 @@
+# Tool: https://ctan.org/pkg/latexindent
+
+# Use 4 spaces for each indentation level
+defaultIndent: "    "
+
+# Allow latexindent to rewrite line breaks, not only leading whitespace
+modifyLineBreaks:
+  environments:
+    # Put \begin{...} on its own line
+    BeginStartsOnOwnLine: 1
+
+    # Put the environment body after the \begin line
+    BodyStartsOnOwnLine: 1
+
+    # Put \end{...} on its own line
+    EndStartsOnOwnLine: 1
+
+    # Leave a line break after \end{...}
+    EndFinishesWithLineBreak: 1
+
+  items:
+    # Put every \item on its own line
+    ItemStartsOnOwnLine: 1
+
+  commands:
+    # Keep inline commands such as \textbf{...} inside prose
+    CommandStartsOnOwnLine: 0
+
+  oneSentencePerLine:
+    # Do not rewrite prose into one sentence per line
+    manipulateSentences: 0
+
+# Try to avoid backup file churn when overwriting files
+onlyOneBackUp: 1
+maxNumberOfBackUps: 0
+cycleThroughBackUps: 0
+
+# Strip trailing whitespace before parsing and after rewriting
+removeTrailingWhitespace:
+  beforeProcessing: 1
+  afterProcessing: 1
+
+# Indent list item bodies in the common list environments
+indentAfterItems:
+  itemize: 1
+  enumerate: 1
+  description: 1
+
+# Align columns around & in table, matrix and equation environments
+lookForAlignDelims:
+  tabular: 1
+  tabularx: 1
+  array: 1
+  matrix: 1
+  pmatrix: 1
+  bmatrix: 1
+  align: 1
+  align*: 1

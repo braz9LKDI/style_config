@@ -1,12 +1,20 @@
+// Tool: https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop
 {
+  // Use latexindent as the LaTeX formatter
   "latex-workshop.formatting.latex": "latexindent",
+
+  // Build with latexmk so .latexmkrc controls engine, biber and output behavior
   "latex-workshop.latex.recipes": [
     {
       "name": "latexmk",
       "tools": ["latexmk"]
     }
   ],
+
+  // Use the latexmk recipe by default
   "latex-workshop.latex.recipe.default": "latexmk",
+
+  // Run latexmk with editor-friendly error output
   "latex-workshop.latex.tools": [
     {
       "name": "latexmk",
@@ -14,7 +22,11 @@
       "args": ["-pdf", "-interaction=nonstopmode", "-file-line-error", "%DOC%"]
     }
   ],
+
+  // Match the build directory configured in .latexmkrc
   "latex-workshop.latex.outDir": "build",
+
+  // Clean common auxiliary files after successful builds
   "latex-workshop.latex.autoClean.run": "onBuilt",
   "latex-workshop.latex.clean.fileTypes": [
     "*.aux",
@@ -46,9 +58,13 @@
     "*.bak1",
     "*.bak2"
   ],
+
+  // Run ChkTeX on save
   "latex-workshop.linting.chktex.enabled": true,
   "latex-workshop.linting.chktex.exec.path": "chktex",
   "latex-workshop.linting.run": "onSave",
+
+  // Point LaTeX Workshop at latexindent
   "latex-workshop.formatting.latexindent.path": "latexindent",
   "latex-workshop.formatting.latexindent.args": [
     "-c",
@@ -56,11 +72,17 @@
     "-y=defaultIndent: '    '",
     "%TMPFILE%"
   ],
+
+  // Format LaTeX files with LaTeX Workshop on save
   "[latex]": {
     "editor.defaultFormatter": "James-Yu.latex-workshop",
     "editor.formatOnSave": true
   },
+
+  // Enable source to PDF jumping after builds
   "latex-workshop.synctex.afterBuild.enabled": true,
+
+  // Give hidden LaTeX config files useful syntax highlighting
   "files.associations": {
     ".chktexrc": "properties",
     ".latexmkrc": "perl"

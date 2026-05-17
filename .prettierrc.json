@@ -1,31 +1,45 @@
 {
+  "$schema": "https://json.schemastore.org/prettierrc",
   "printWidth": 100,
   "tabWidth": 2,
   "useTabs": false,
-  "endOfLine": "lf",
-  "embeddedLanguageFormatting": "auto",
-  "singleQuote": true,
-  "semi": true,
-  "trailingComma": "all",
-  "bracketSpacing": true,
   "arrowParens": "always",
+  "bracketSameLine": false,
+  "bracketSpacing": true,
+  "embeddedLanguageFormatting": "auto",
+  "endOfLine": "lf",
+  "htmlWhitespaceSensitivity": "css",
+  "jsxSingleQuote": false,
+  "proseWrap": "preserve",
   "quoteProps": "as-needed",
+  "semi": true,
+  "singleAttributePerLine": false,
+  "singleQuote": true,
+  "trailingComma": "all",
   "overrides": [
     {
       "files": ["*.md", "*.mdx"],
-      "options": { "tabWidth": 4, "proseWrap": "preserve" }
+      "options": {
+        "tabWidth": 4
+      }
+    },
+    {
+      "files": ["*.json", "*.jsonc", "*.json5", "*.webmanifest"],
+      "options": {
+        "trailingComma": "none"
+      }
     },
     {
       "files": ["*.yml", "*.yaml"],
-      "options": { "singleQuote": false }
+      "options": {
+        "singleQuote": false
+      }
     },
     {
       "files": ["*.css", "*.scss", "*.less"],
-      "options": { "singleQuote": false }
-    },
-    {
-      "files": ["*.html", "*.vue", "*.svelte"],
-      "options": { "htmlWhitespaceSensitivity": "css" }
+      "options": {
+        "singleQuote": false
+      }
     }
   ]
 }

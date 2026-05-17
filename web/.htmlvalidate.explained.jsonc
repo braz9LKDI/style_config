@@ -1,0 +1,20 @@
+// Tool: https://www.npmjs.com/package/html-validate
+{
+  // Recommended HTML correctness and accessibility baseline:
+  // required attributes, valid nesting, unique ids, ARIA checks and related rules
+  "extends": ["html-validate:recommended"],
+
+  // Project opinions layered on top of the recommended preset
+  "rules": {
+    // Require XHTML-style void elements: <br />, <img />, <input />
+    // Change "selfclosing" to "omit" if a project prefers <br>, <img> and <input>
+    "void-style": ["error", { "style": "selfclosing" }],
+
+    // Fail HTML lint when trailing spaces slip through editor cleanup
+    "no-trailing-whitespace": "error",
+
+    // Allow style="..." for prototypes and one-off HTML
+    // Re-enable as "error" once a project has a real CSS pipeline
+    "no-inline-style": "off"
+  }
+}

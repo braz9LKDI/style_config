@@ -1,5 +1,4 @@
 {
-  "_comment": "Sample package.json fragment, copy the `scripts` and `devDependencies` blocks into your project's package.json.",
   "scripts": {
     "format": "prettier --write .",
     "format:check": "prettier --check .",

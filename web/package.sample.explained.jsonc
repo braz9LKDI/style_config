@@ -1,0 +1,52 @@
+{
+  // Commands for formatting, linting, fixing and CI checks
+  "scripts": {
+    // Rewrite every file Prettier supports
+    "format": "prettier --write .",
+
+    // Check formatting without changing files. Use this in CI
+    "format:check": "prettier --check .",
+
+    // Run ESLint on JavaScript files matched by eslint.config.js
+    "lint:js": "eslint .",
+
+    // Run Stylelint on CSS files
+    "lint:css": "stylelint \"**/*.css\"",
+
+    // Run html-validate on HTML files
+    "lint:html": "html-validate \"**/*.html\"",
+
+    // Run all linters. The command stops at the first failing linter
+    "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
+
+    // Apply formatter fixes, ESLint fixes and Stylelint fixes
+    "fix": "prettier --write . && eslint . --fix && stylelint \"**/*.css\" --fix",
+
+    // Full verification command for CI and pre-commit checks
+    "check": "npm run format:check && npm run lint"
+  },
+
+  // Development-only tooling used by the scripts above
+  "devDependencies": {
+    // Shared recommended ESLint rules for JavaScript
+    "@eslint/js": "^9.14.0",
+
+    // JavaScript linter
+    "eslint": "^9.14.0",
+
+    // Browser and Node global variable definitions for ESLint
+    "globals": "^15.12.0",
+
+    // HTML validator and accessibility-oriented linter
+    "html-validate": "^9.0.0",
+
+    // Formatter for JS, CSS, HTML, JSON, Markdown, YAML and related files
+    "prettier": "^3.3.3",
+
+    // CSS linter
+    "stylelint": "^16.10.0",
+
+    // Standard Stylelint baseline rules
+    "stylelint-config-standard": "^36.0.1"
+  }
+}

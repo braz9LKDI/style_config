@@ -1,0 +1,63 @@
+# Commented copy of .editorconfig
+# Keep .editorconfig as the live config; this file explains the choices
+# EditorConfig supports comments, so these comments can be copied into a real .editorconfig if desired
+
+# Stop EditorConfig from searching parent directories after this file
+root = true
+
+# Baseline rules for every file unless a later section overrides them
+[*]
+# Save files as UTF-8
+charset = utf-8
+
+# Normalize line endings to LF, the safest cross-platform default for repos
+end_of_line = lf
+
+# Ensure every text file ends with a final newline
+insert_final_newline = true
+
+# Remove trailing spaces on save for most files
+trim_trailing_whitespace = true
+
+# Use spaces as the default indentation style
+indent_style = space
+
+# Use 2 spaces as the default indentation size
+indent_size = 2
+
+# Render tab characters as 2 columns unless a file type overrides this
+tab_width = 2
+
+[*.{md,mdx}]
+    indent_size = 4
+
+# Python, JVM, C-family, .NET, PHP, Rust and Swift files
+# These ecosystems commonly use 4-space indentation
+[*.{py,pyi,java,kt,kts,c,cc,cxx,cpp,h,hh,hxx,hpp,cs,fs,fsx,vb,php,rs,swift}]
+indent_size = 4
+
+# PowerShell and Windows command scripts commonly use 4-space indentation
+[*.{ps1,psm1,psd1,bat,cmd}]
+indent_size = 4
+
+# LaTeX and BibTeX-related files are easier to scan with 4-space indentation
+[*.{tex,bib,sty,cls}]
+indent_size = 4
+
+# Go tooling formats go.mod with tabs
+[go.mod]
+indent_style = tab
+indent_size = 4
+tab_width = 4
+
+# Go source is formatted by gofmt, which uses tabs for indentation
+[*.go]
+indent_style = tab
+indent_size = 4
+tab_width = 4
+
+# Make recipes require tab indentation
+[{Makefile,makefile,*.mk}]
+indent_style = tab
+indent_size = 4
+tab_width = 4

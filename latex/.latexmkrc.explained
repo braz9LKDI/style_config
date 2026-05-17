@@ -1,0 +1,27 @@
+# Tool: https://ctan.org/pkg/latexmk
+
+# Build PDF output with pdflatex
+$pdf_mode = 1;
+
+# Put final output and auxiliary files in build/
+$out_dir = 'build';
+$aux_dir = 'build';
+
+# Use shell escape for minted plus CI-friendly error output
+$pdflatex = 'pdflatex -shell-escape -halt-on-error -file-line-error '
+          . '-interaction=nonstopmode %O %S';
+
+# Run biber when bibliography output is stale or missing
+$bibtex_use = 2;
+
+# Ask biber to validate bibliography data while building
+$biber = 'biber --validate-datamodel %O %S';
+
+# Extra artifacts latexmk -C should remove
+$clean_ext = '_minted-%R nav snm vrb run.xml bbl bcf';
+
+# Give cross-references and bibliographies enough passes to settle
+$max_repeat = 5;
+
+# Default top-level document for direct latexmk runs
+@default_files = ('main.tex');

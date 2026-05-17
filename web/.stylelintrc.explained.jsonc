@@ -1,0 +1,39 @@
+// Tool: https://www.npmjs.com/package/stylelint
+{
+  // Standard CSS baseline: syntax errors, unknown properties, invalid units,
+  // duplicate properties and common best-practice rules
+  "extends": ["stylelint-config-standard"],
+
+  // Project opinions layered on top of the standard preset
+  "rules": {
+    // Class selectors must be strict kebab-case:
+    // .button, .primary-button, .user-avatar-32
+    // Loosen this per project for BEM, CSS Modules, or utility-heavy CSS
+    "selector-class-pattern": [
+      "^[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+      { "message": "Expected class selector to be kebab-case" }
+    ],
+
+    // CSS custom properties should be kebab-case-ish design tokens
+    // Interior uppercase letters are allowed to play nicely with JS-derived tokens
+    "custom-property-pattern": [
+      "^[a-z][a-zA-Z0-9]*(-[a-zA-Z0-9]+)*$",
+      { "message": "Expected custom property to be kebab-case" }
+    ],
+
+    // Prefer #fff over #ffffff when the short form is equivalent
+    "color-hex-length": "short",
+
+    // Prefer margin: 0 over writing every margin-* longhand with the same value
+    "declaration-block-no-redundant-longhand-properties": true,
+
+    // Prefer padding: 1rem over padding: 1rem 1rem
+    "shorthand-property-no-redundant-values": true,
+
+    // Disabled because it is noisy in real stylesheets and often reports false positives
+    "no-descending-specificity": null
+  },
+
+  // Skip dependencies and minified assets
+  "ignoreFiles": ["node_modules/**", "**/*.min.css"]
+}

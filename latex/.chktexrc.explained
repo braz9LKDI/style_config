@@ -1,0 +1,8 @@
+# Tool: https://www.nongnu.org/chktex
+
+# Add command arguments that ChkTeX should ignore while linting prose
+WipeArg
+{
+    # Ignore the bibliography resource path used by biblatex and biber
+    \addbibresource:{}
+}

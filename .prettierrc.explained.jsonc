@@ -1,0 +1,87 @@
+// Tools:
+//  - https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode.
+//  - https://www.npmjs.com/package/prettier.
+// Commented copy of .prettierrc.json
+{
+  // Enables editor validation and autocomplete for Prettier config keys
+  "$schema": "https://json.schemastore.org/prettierrc",
+
+  // Preferred line length before Prettier starts wrapping. This is a target, not a hard limit
+  "printWidth": 100,
+
+  // Number of spaces Prettier uses for one indentation level
+  "tabWidth": 2,
+
+  // Use spaces for indentation instead of tab characters
+  "useTabs": false,
+
+  // Always include parentheses around arrow function parameters: (value) => value
+  "arrowParens": "always",
+
+  // Put the closing bracket of multiline HTML/JSX/Vue/Svelte tags on its own line
+  "bracketSameLine": false,
+
+  // Add spaces inside object literals: { name: value } instead of {name: value}
+  "bracketSpacing": true,
+
+  // Format embedded code blocks when Prettier understands the embedded language
+  "embeddedLanguageFormatting": "auto",
+
+  // Normalize line endings to LF, which is the safest cross-platform default for repos
+  "endOfLine": "lf",
+
+  // Let CSS display rules guide whitespace handling in HTML-family files
+  "htmlWhitespaceSensitivity": "css",
+
+  // Use double quotes in JSX attributes, matching common React conventions
+  "jsxSingleQuote": false,
+
+  // Preserve existing Markdown prose wrapping instead of reflowing paragraphs
+  "proseWrap": "preserve",
+
+  // Only quote object properties when the syntax requires it
+  "quoteProps": "as-needed",
+
+  // Add semicolons where the language supports them
+  "semi": true,
+
+  // Keep multiple attributes on one line when they fit within printWidth
+  "singleAttributePerLine": false,
+
+  // Prefer single quotes in JavaScript, TypeScript and related languages
+  "singleQuote": true,
+
+  // Add trailing commas wherever the target syntax supports them
+  "trailingComma": "all",
+
+  // File-type-specific adjustments for common cases where the global defaults need nuance
+  "overrides": [
+    {
+      "files": ["*.md", "*.mdx"],
+      "options": {
+        "tabWidth": 4
+      }
+    },
+    {
+      // JSON-family formats do not support trailing commas in the strict case
+      "files": ["*.json", "*.jsonc", "*.json5", "*.webmanifest"],
+      "options": {
+        "trailingComma": "none"
+      }
+    },
+    {
+      // YAML conventionally uses double quotes only when quotes are needed
+      "files": ["*.yml", "*.yaml"],
+      "options": {
+        "singleQuote": false
+      }
+    },
+    {
+      // CSS-family languages commonly use double quotes for strings and URLs
+      "files": ["*.css", "*.scss", "*.less"],
+      "options": {
+        "singleQuote": false
+      }
+    }
+  ]
+}

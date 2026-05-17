@@ -1,0 +1,78 @@
+# Tool: https://www.gnu.org/software/make
+
+# Top-level document without the .tex extension
+MAIN        := main
+
+# All TeX files except build artifacts
+TEX_FILES   := $(shell find . -type f -name '*.tex' -not -path './build/*')
+
+# latexmk output directory
+BUILD_DIR   := build
+
+# Tool commands, override at invocation time if needed
+LATEXMK     := latexmk
+LATEXINDENT := latexindent
+CHKTEX      := chktex
+
+# ChkTeX warnings suppressed for this style baseline
+CHKTEX_NOWARN := -n 1 -n 12 -n 13 -n 24 -n 36 -n 37
+
+.PHONY: all build watch format format-check lint lint-tex check clean clean-indent-tmp help
+
+# Default target
+all: build
+
+# Build the main document once through latexmk
+build:
+	$(LATEXMK) $(MAIN).tex
+
+# Rebuild continuously while files change
+watch:
+	$(LATEXMK) -pvc $(MAIN).tex
+
+# Rewrite every .tex file with latexindent
+format:
+	@for f in $(TEX_FILES); do \
+		echo "  latexindent  $$f"; \
+		$(LATEXINDENT) -s -w -m -l "$$f" || { $(MAKE) -s clean-indent-tmp; exit 1; }; \
+	done
+	@$(MAKE) -s clean-indent-tmp
+
+# Fail if any .tex file would be changed by latexindent
+format-check:
+	@status=0; \
+	for f in $(TEX_FILES); do \
+		$(LATEXINDENT) -s -m -l -k "$$f" >/dev/null 2>&1 || { \
+			echo "NEEDS FORMAT: $$f"; status=1; \
+		}; \
+	done; \
+	$(MAKE) -s clean-indent-tmp; \
+	exit $$status
+
+# Delete latexindent backup and check-mode temp files
+clean-indent-tmp:
+	@find . -type f \( -name '*.bak' -o -name '*.bak[0-9]' -o -name '*.tmp.bak' -o -name '*.tmp.tex' \) \
+		-not -path './build/*' -not -path './.git/*' -delete
+
+# Alias for TeX linting
+lint: lint-tex
+
+# Run ChkTeX on every .tex file
+lint-tex:
+	@status=0; \
+	for f in $(TEX_FILES); do \
+		$(CHKTEX) -q -I0 -l .chktexrc $(CHKTEX_NOWARN) "$$f" || status=1; \
+	done; \
+	exit $$status
+
+# CI-style verification
+check: format-check lint build
+
+# Remove build artifacts and formatter temp files
+clean: clean-indent-tmp
+	$(LATEXMK) -C
+	rm -rf $(BUILD_DIR) _minted-* sources.md
+
+# Print documented targets
+help:
+	@grep -E '^## ' $(MAKEFILE_LIST) | sed 's/## /  /'
