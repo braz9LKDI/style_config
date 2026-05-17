@@ -24,6 +24,33 @@ Copy the files you need into a project root. For scratch work, place the root `.
 
 Project-local configs closer to the file still win.
 
+```bash
+project=/path/to/project
+
+# Global formatting baseline only
+cp -a .prettierrc.json .editorconfig "$project"/
+
+# Web setup
+mkdir -p "$project/.vscode"
+cp -a .web/.htmlvalidate.json web/.stylelintrc.json web/eslint.config.js web/package.sample.json "$project"/
+cp -a web/.vscode/extensions.json web/.vscode/settings.json "$project/.vscode"/
+
+# Markdown setup
+mkdir -p "$project/.vscode"
+cp -a .prettierrc.json .editorconfig markdown/.markdownlint.jsonc markdown/.markdownlintignore markdown/package.sample.json "$project"/
+cp -a markdown/.vscode/extensions.json markdown/.vscode/settings.json "$project/.vscode"/
+
+# Full LaTeX setup
+mkdir -p "$project/.vscode"
+cp -a latex/.chktexrc latex/.gitignore latex/.latexindent.yaml latex/.latexmkrc latex/Makefile "$project"/
+cp -a latex/.vscode/extensions.json latex/.vscode/settings.json "$project/.vscode"/
+
+# Simplified LaTeX setup
+mkdir -p "$project/.vscode"
+cp -a latex_simplified/.chktexrc latex_simplified/.gitignore latex_simplified/.latexindent.yaml "$project"/
+cp -a latex_simplified/.vscode/extensions.json latex_simplified/.vscode/settings.json "$project/.vscode"/
+```
+
 ## Why is there so little documentation?
 
 I am deeply, possibly medically, obsessed with standardization. That is useful right up until every config file gets a matching essay, then the docs become a second config system.
